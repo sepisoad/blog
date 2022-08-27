@@ -1,0 +1,26 @@
+#!/usr/bin/env -S deno run --allow-all
+
+import * as U from "./utils/utils.js"
+
+const HOST = "prose.sh"
+const toPublishDir = Deno.env.get("SEPI_BLOG_TO_PUBLISH_DIR")
+const publishedDir = Deno.env.get("SEPI_BLOG_PUBLISHED_DIR")
+const scpCommand = "scp"
+
+U.forceCreateDir(toPublishDir)
+U.forceCreateDir(publishedDir)
+
+const wipFiles = U.listFilesInDir(toPublishDir)
+
+for (const file of wipFiles) {
+  const post = U.pathJoin([toPublishDir, file])
+  const command = `${scpCommand} ${post} ${HOST}:/`
+  var res = await U.runShellCommand(command)
+  if (res.status.success === false) {
+    console.log(`failed to upload ${post} to ${HOST}`)
+    continue
+  }
+  const publishedPost = U.pathJoin([publishedDir, file])
+  res = U.moveFile(post, publishedPost)
+  console.log(`successfully uploaded ${post} to ${HOST} and moved to ${publishedDir}`)
+}
