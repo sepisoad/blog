@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    
+        <title>
+             type check go interface implementations on compile time
+            
+        </title>
+
+        
+            <meta property="og:title" content="type check go interface implementations on compile time" />
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+         <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.png />
+    
+
+    
+
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=XXXX-XXXXX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'XXXX-XXXXX');
+        </script>
+    
+
+    
+    
+        <script src=https://sepi.me/js/feather.min.js></script>
+    
+
+
+    
+        <link href=https://sepi.me/css/fonts.css rel="stylesheet" />
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://sepi.me/css/main.css />
+
+    
+        <link
+            rel="stylesheet"
+            id="darkModeStyle"
+            type="text/css"
+            href=https://sepi.me/css/dark.css
+            
+            
+                disabled
+            
+        />
+    
+
+
+    
+
+
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main" id="main_title">
+        <a href=https:&#x2F;&#x2F;sepi.me></a>
+    </div>
+
+    <nav>
+        
+            <a href=&#x2F;>Home</a>
+        
+
+        
+            |
+
+            
+                <a href=&#x2F;>en</a>
+            
+        
+
+        
+            | <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+            <script src=https://sepi.me/js/themetoggle.js></script>
+        
+    </nav>
+</header>
+
+
+        
+    
+<main>
+    <article>
+        <div class="title">
+            <h1 class="title">type check go interface implementations on compile time</h1>
+            <div class="meta">
+                
+                on  2022-08-02
+
+                
+            </div>
+        </div>
+
+        
+
+        <section class="body">
+            <p>interfaces in <strong>go</strong> are a bit different from other languages namely <strong>java</strong> and <strong>c#</strong>, in go you do not explicitly define a concrete implementation for an interface, like what you do in say java. in fact interfaces are impelmented implicitly, in other words an struct implments an interface once in contains all the method defined in an interface.</p>
+<p>for example lets say we have the following interfaces:</p>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#b48ead;">package </span><span style="color:#bf616a;">x
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>Fooer </span><span style="color:#b48ead;">interface </span><span>{
+</span><span>  </span><span style="color:#8fa1b3;">Foox</span><span>(</span><span style="color:#bf616a;">in </span><span style="color:#b48ead;">string</span><span>) </span><span style="color:#b48ead;">int
+</span><span>  </span><span style="color:#8fa1b3;">Fooy</span><span>(</span><span style="color:#bf616a;">in </span><span style="color:#b48ead;">int</span><span>) </span><span style="color:#b48ead;">string
+</span><span>}
+</span></code></pre>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#b48ead;">package </span><span style="color:#bf616a;">y
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>Bazer </span><span style="color:#b48ead;">interface </span><span>{
+</span><span>  </span><span style="color:#8fa1b3;">Baz</span><span>(</span><span style="color:#bf616a;">in </span><span style="color:#b48ead;">string</span><span>) </span><span style="color:#b48ead;">string
+</span><span>}
+</span></code></pre>
+<p>now these interfaces are implemented in the following struct:</p>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#b48ead;">package </span><span style="color:#bf616a;">sample
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>Bar {}
+</span><span>
+</span><span style="color:#b48ead;">func </span><span>(</span><span style="color:#bf616a;">b </span><span style="color:#b48ead;">Bar</span><span>) </span><span style="color:#8fa1b3;">Foox</span><span>(</span><span style="color:#bf616a;">in </span><span style="color:#b48ead;">string</span><span>) </span><span style="color:#b48ead;">int </span><span>{ </span><span style="color:#65737e;">/*some code goes here*/ </span><span>}
+</span><span>
+</span><span style="color:#b48ead;">func </span><span>(</span><span style="color:#bf616a;">b </span><span style="color:#b48ead;">Bar</span><span>) </span><span style="color:#8fa1b3;">Fooy</span><span>(</span><span style="color:#bf616a;">in </span><span style="color:#b48ead;">int</span><span>) </span><span style="color:#b48ead;">string </span><span>{ </span><span style="color:#65737e;">/*some code goes here*/ </span><span>}
+</span><span>
+</span><span style="color:#b48ead;">func </span><span>(</span><span style="color:#bf616a;">b </span><span style="color:#b48ead;">Bar</span><span>) </span><span style="color:#8fa1b3;">Baz</span><span>(</span><span style="color:#bf616a;">in </span><span style="color:#b48ead;">string</span><span>) </span><span style="color:#b48ead;">string </span><span>{ </span><span style="color:#65737e;">/*some code goes here*/ </span><span>}
+</span></code></pre>
+<p>notice that we did not mentioned the name of the above interfaces, heck we did not even import those modules, yet golang knows that <code>Bar</code> is compatible with both <code>Fooer</code> and <code>Bazer</code>. this is possible because go compiler only cares about the contracts that each interface defines, and the contract is simple the methods definiton.</p>
+<p>this makes the code very cleaner and less hairy when you are in a large code base, however anything that is used implicitly can change behinde the scene and bit you when you do not expect. one way to quickly cacth errors when you deviate from the interfaces contracts is to write something like this at the top of the file that implements an interface or interfaces:</p>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#b48ead;">package </span><span style="color:#bf616a;">sample
+</span><span>
+</span><span style="color:#b48ead;">import </span><span>(
+</span><span>  &quot;</span><span style="color:#a3be8c;">x</span><span>&quot; </span><span style="color:#65737e;">//package that defines Fooer
+</span><span>  &quot;</span><span style="color:#a3be8c;">y</span><span>&quot; </span><span style="color:#65737e;">//package that defines Bazer
+</span><span>)
+</span><span>
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">_ x</span><span>.</span><span style="color:#b48ead;">Fooer </span><span>= </span><span style="color:#bf616a;">Bar</span><span>{} </span><span style="color:#65737e;">// makes sure that Bar implements Fooer
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">_ y</span><span>.</span><span style="color:#b48ead;">Bazer </span><span>= </span><span style="color:#bf616a;">Bar</span><span>{} </span><span style="color:#65737e;">// makes sure that Bar implements Bazer
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>Bar {}
+</span><span>
+</span><span style="color:#65737e;">// the same code as before
+</span></code></pre>
+<p>now if you change anything in your implementation code or if something changes on the interfaces side you get a clean compiler error complaining that you are deviating from the interface.</p>
+<p>nice?</p>
+<p><img src="https://i.giphy.com/media/Od0QRnzwRBYmDU3eEO/giphy.webp" alt="meme" /></p>
+
+        </section>
+
+        
+            <div class="post-tags">
+                <nav class="nav tags">
+                    <ul class="tags">
+                        
+                            <li><a href=https://sepi.me/tags/go/>go</a></li>
+                        
+                            <li><a href=https://sepi.me/tags/programming/>programming</a></li>
+                        
+                            <li><a href=https://sepi.me/tags/interface/>interface</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        
+
+    </article>
+</main>
+
+
+
+        <footer>
+  <div style="display:flex">
+    
+        <a class="soc" href=https:&#x2F;&#x2F;github.com&#x2F;sepisoad title=GitHub>
+            <i data-feather=github></i>
+        </a>
+    
+        <a class="soc" href=https:&#x2F;&#x2F;sr.ht&#x2F;~sepisoad title=SourceHut>
+            <i data-feather=git-branch></i>
+        </a>
+    
+        <a class="soc" href=https:&#x2F;&#x2F;x.com&#x2F;sepisoad title=Twitter>
+            <i data-feather=twitter></i>
+        </a>
+    
+  </div>
+  <div class="footer-info">
+    2023 © sepi | <a
+      href="https://github.com/XXXMrG/archie-zola">Archie-Zola Theme</a>
+  </div>
+</footer>
+
+
+<script>
+    feather.replace();
+</script>
+
+
+    </div>
+</body>
+
+</html>
