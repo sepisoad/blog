@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="home-title">
+  ﴾SEPI﴿
+</div>
+
+<div class="home-links">
+  <a class="home-link" href="/"> Home </a>
+  .
+  <a class="home-link" href="https://x.com/sepisoad"> Twitter </a>
+  .
+  <a class="home-link" href="https://github.com/sepisoad"> Github </a>
+  .
+  <a class="home-link" href="https://sr.ht/~sepisoad"> SourceHut </a>
+</div>
+
+<ul class="posts-section">
+  {% for post in section.pages %}
+  <li class="post-single-link">
+    <span> 𐩔 <a href="{{ post.permalink }}">{{ post.title }}</a> </span>
+  </li>
+  {% endfor %}
+
+</ul>
+
+{% endblock content %}

@@ -9,10 +9,10 @@ PUBLISH_CMD = $(SCRIPTS_DIR)/publish.py
 export SEPI_BLOG_TO_PUBLISH_DIR = $(TO_PUBLISH_DIR)
 export SEPI_BLOG_PUBLISHED_DIR = $(PUBLISHED_DIR)
 
-new: 
+new:
 	@python3 $(NEW_CMD)
 
 
-publish: 
+publish:
 	@python3 $(PUBLISH_CMD)
 

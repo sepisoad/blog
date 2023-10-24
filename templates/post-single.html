@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="home-title">
+  ﴾SEPI﴿
+</div>
+
+<div class="home-links">
+  <a class="home-link" href="/"> Home </a>
+  .
+  <a class="home-link" href="https://x.com/sepisoad"> Twitter </a>
+  .
+  <a class="home-link" href="https://github.com/sepisoad"> Github </a>
+  .
+  <a class="home-link" href="https://sr.ht/~sepisoad"> SourceHut </a>
+</div>
+
+<div class="post-section">
+
+<h1 class="post-title"> {{ page.title | markdown(inline=true) }} </h1>
+
+{{ page.date }}
+
+<div class="post-content">
+{{ page.content | safe }}
+</div>
+
+</div>
+
+{% endblock content %}

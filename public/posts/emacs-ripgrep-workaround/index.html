@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href=https://sepi.me/css/base.css>
+
+  <title>sepi.me</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+
+<div class="home-title">
+  ﴾SEPI﴿
+</div>
+
+<div class="home-links">
+  <a class="home-link" href="/"> Home </a>
+  .
+  <a class="home-link" href="https://x.com/sepisoad"> Twitter </a>
+  .
+  <a class="home-link" href="https://github.com/sepisoad"> Github </a>
+  .
+  <a class="home-link" href="https://sr.ht/~sepisoad"> SourceHut </a>
+</div>
+
+<div class="post-section">
+
+<h1 class="post-title"> My pain points with Emacs code search and how I fixed them </h1>
+
+2023-10-22
+
+<div class="post-content">
+<p>I love <a href="https://www.gnu.org/software/emacs/">Emacs</a>, but one of the things I miss from Visual Studio Code is a good code search feature.
+The <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Grep-Searching.html">built-in grep command</a> is powerful, but it's not very easy to use, 
+and the search results can be difficult to navigate, especially in large codebases.</p>
+<p>There are many third-party packages that try to solve this problem, but most of them have the same issues: 
+they're either difficult to use or the search results are hard to navigate.</p>
+<p>However, there is one package called <a href="https://github.com/dajva/rg.el">rg.el</a> that does a great job of fixing both of these problems.</p>
+<p>rg.el is a wrapper for the <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> command-line tool, which is a very fast and powerful code search tool.
+ripgrep understands <a href="https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#manual-filtering-file-types">file types</a> and comes with a good set of defaults, 
+so you don't need to worry about writing complex regex patterns.</p>
+<p>rg.el also has a fantastic transient-based UI system that makes it easy to manipulate the search results. 
+For example, you can easily exclude (or include) certain patterns from the results by adding a <code>--glob</code> flag to your search.</p>
+<p>For example, if you're working on a Go project and you want to search for the function <code>encodeBase64</code>, 
+you can use the following command to exclude all test files from the results:</p>
+<pre data-lang="bash" style="background-color:#eff1f5;color:#4f5b66;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">rg-project</span><span> encodeBase64</span><span style="color:#bf616a;"> --glob</span><span>=&#39;</span><span style="color:#a3be8c;">!*test.go</span><span>&#39;
+</span></code></pre>
+<p>This is great, but there's one issue. <code>rg.el</code> only allows you to specify one <code>--glob</code> flag at a time. This is fine in some cases, 
+but there are times when you need to exclude multiple patterns.</p>
+<p>Fortunately, there's a workaround. You can set the global variable <code>rg-command-line-flags</code> to an array of strings of custom flags, 
+and all of those strings will be passed to <code>ripgrep</code> command.</p>
+<p>if you're unsure how to do this, here's a step-by-step example:</p>
+<ol>
+<li>Press <code>M-:</code> to activate the <strong>eval prompt</strong> in the minibuffer.</li>
+<li>Set the variable to your desired values, for instance: </li>
+</ol>
+<pre data-lang="lisp" style="background-color:#eff1f5;color:#4f5b66;" class="language-lisp "><code class="language-lisp" data-lang="lisp"><span>(</span><span style="color:#96b5b4;">setq</span><span> rg-command-line-flags &#39;(&quot;</span><span style="color:#a3be8c;">-g &#39;!*_test.go&#39;</span><span>&quot; &quot;</span><span style="color:#a3be8c;">-g &#39;!*foo.go&#39;</span><span>&quot;)).
+</span></code></pre>
+<p>You only need to do this once, and all subsequent searches will be affected by it. To disable this behavior, simply set <code>rg-command-line-flags</code> to <code>nil</code>.</p>
+<p>I wish rg.el supported multiple filters in its UI, but this workaround is fine for me for the time being.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>rg.el is a great code search package for Emacs. It's easy to use and the search results are easy to navigate. 
+If you're looking for a good code search solution for Emacs, I highly recommend rg.el.</p>
+
+</div>
+
+</div>
+
+
+    </div>
+  </section>
+</body>
+
+</html>
