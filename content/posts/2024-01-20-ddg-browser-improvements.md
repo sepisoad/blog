@@ -1,9 +1,9 @@
----
++++
 title = "Embracing Simplicity: My Journey to the DuckDuckGo Browser"
 date = "2024-01-20"
 [taxonomies]
 tags = ["web", "browser", "duckduckgo", "ui", "ux"]
----
++++
 
 I've always harbored a desire to break free from the clutches of the Chrome web browser. Despite numerous attempts to quit, I found myself inevitably drawn back each time. Firefox, though given multiple chances, failed to impress me. Not only did its performance leave much to be desired, but its interface was also off-putting and confusing, giving the impression of a makeshift browser lacking a cohesive design.
 
