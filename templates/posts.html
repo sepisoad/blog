@@ -2,27 +2,37 @@
 
 {% block content %}
 
-<div class="home-title">
-  ﴾SEPI﴿
+<div class="container">
+
+  <div class="row">
+    <div class="col is-center">
+      <h1>﴾SEPI﴿</h1>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col col-6-lg"></div>
+    <a class="col is-center" href="/"> Home </a>
+    .
+    <a class="col is-center" href="https://x.com/sepisoad"> Twitter </a>
+    .
+    <a class="col is-center" href="https://github.com/sepisoad"> Github </a>
+    .
+    <a class="col is-center" href="https://sr.ht/~sepisoad"> SourceHut </a>
+    <div class="col col-6-lg"></div>
+  </div>
+
+  <div class="row">
+    <div class="col">    
+      {% for post in section.pages %}
+      <div class="row ">
+        <div class="col">
+          <span> 𐩔 <a href="{{ post.permalink }}">{{ post.title }}</a> </span>
+        </div>
+      </div>      
+      {% endfor %}
+    </div>  
+  </div>
+
 </div>
-
-<div class="home-links">
-  <a class="home-link" href="/"> Home </a>
-  .
-  <a class="home-link" href="https://x.com/sepisoad"> Twitter </a>
-  .
-  <a class="home-link" href="https://github.com/sepisoad"> Github </a>
-  .
-  <a class="home-link" href="https://sr.ht/~sepisoad"> SourceHut </a>
-</div>
-
-<ul class="posts-section">
-  {% for post in section.pages %}
-  <li class="post-single-link">
-    <span> 𐩔 <a href="{{ post.permalink }}">{{ post.title }}</a> </span>
-  </li>
-  {% endfor %}
-
-</ul>
-
 {% endblock content %}

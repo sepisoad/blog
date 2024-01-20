@@ -2,29 +2,49 @@
 
 {% block content %}
 
-<div class="home-title">
-  ﴾SEPI﴿
-</div>
+<div class="container">
 
-<div class="home-links">
-  <a class="home-link" href="/"> Home </a>
-  .
-  <a class="home-link" href="https://x.com/sepisoad"> Twitter </a>
-  .
-  <a class="home-link" href="https://github.com/sepisoad"> Github </a>
-  .
-  <a class="home-link" href="https://sr.ht/~sepisoad"> SourceHut </a>
-</div>
+  <div class="row">
+    <div class="col is-center">
+      <h1> ﴾SEPI﴿ </h1>
+    </div>  
+  </div>
 
-<div class="post-section">
+  <div class="row">
+    <div class="col col-6-lg"></div>
+    <a class="col is-center" href="/"> Home </a>
+    .
+    <a class="col is-center" href="https://x.com/sepisoad"> Twitter </a>
+    .
+    <a class="col is-center" href="https://github.com/sepisoad"> Github </a>
+    .
+    <a class="col is-center" href="https://sr.ht/~sepisoad"> SourceHut </a>
+    <div class="col col-6-lg"></div>
+  </div>
 
-<h1 class="post-title"> {{ page.title | markdown(inline=true) }} </h1>
 
-{{ page.date }}
 
-<div class="post-content">
-{{ page.content | safe }}
-</div>
+  <h2 class="post-title"> {{ page.title | markdown(inline=true) }} </h2>
+
+  <div class="card">
+    <span> written by <strong> sepi </strong>, published at <strong> {{ page.date }} </strong> </span>
+    <br>
+    <span> 
+      tags: 
+      {% for tag in page.taxonomies.tags %} 
+        <span class="tag is-small bg-light">{{tag}}</span>
+        
+      {% endfor %} 
+    </span>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="text-justify">
+      {{ page.content | safe }}
+      </p>
+    </div>
+  </div>
 
 </div>
 
