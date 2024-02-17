@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block page %}
+
+<main class="index">
+
+  <section class="article-list">
+    <h1>Sepi's blog</h1>
+
+    {% for post in posts | reverse %}
+    <div class="article">
+      <span class="date">{{post.meta.date.strftime('%B %-d, %Y')}}</span>
+      <a href="/post-{{post.idx}}">{{post.meta.title}}</a>   
+    </div>
+    {% endfor %}
+  </section>
+
+  <aside>
+    <img src="static/image/avatar-nobg.png" alt="my avatar" height="100">
+
+    <dl class="external-links">
+      <dt>email</dt>
+      <dd><a href="mailto:me@sepi.me">me@sepi.me</a></dd>
+      <dt>github</dt>
+      <dd><a href="https://github.com/sepisoad">@github</a></dd>
+      <dt>sourcehut</dt>
+      <dd><a href="https://sr.ht/~sircmpwn">~sepisoad</a></dd>      
+    </dl>
+
+    <small>
+      <h3>Hello</h3>
+        <p> My name is Sepehr ﴾سپهر﴿, but I go by "<strong>Sepi</strong>". I'm a full-stack software engineer living
+            in <strong>Copenhagen, Denmark</strong>. I've been programming since I was a teenager, and I started my
+            career professionally in 2010. 
+        </p>
+    </small>
+  </aside>
+  
+</main>
+
+{% endblock page %}

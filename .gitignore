@@ -1,11 +1,11 @@
-/published/SETTINGS.md
-/.DS_Store
-/to-publish/
+# python generated files
 __pycache__/
-*.pyc
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
 
-/scripts/utils/__pycache__/utils.cpython-310.pyc
-/scripts/utils/__pycache__/utils.cpython-310.pyc
-/scripts/utils/__pycache__/utils.cpython-310.pyc
-/site.tar.gz
-/public/.DS_Store
+# venv
+.venv
+public
