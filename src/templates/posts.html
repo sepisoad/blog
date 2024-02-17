@@ -10,7 +10,7 @@
     {% for post in posts | reverse %}
     <div class="article">
       <span class="date">{{post.meta.date.strftime('%B %-d, %Y')}}</span>
-      <a href="/post-{{post.idx}}">{{post.meta.title}}</a>   
+      <a href="/post-{{post.idx}}.html">{{post.meta.title}}</a>   
     </div>
     {% endfor %}
   </section>
