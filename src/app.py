@@ -13,7 +13,7 @@ def home_page():
 	return render_template('posts.html', posts=posts)
 
 
-@app.get('/post-<int:id>')
+@app.get('/post-<int:id>.html')
 def post_page(id):
 	posts = get_posts_info('./src/content/posts')
 	post = posts[id - 1]
@@ -21,7 +21,7 @@ def post_page(id):
 	return render_template('post.html', meta=meta, content=content)
 
 
-@app.get('/tag-<name>')
+@app.get('/tag-<name>.html')
 def tag_page(name):
 	# tags = get_tags_map('./src/content/posts')
 	# return render_template('tag.html', name=name, posts=tags[name])
