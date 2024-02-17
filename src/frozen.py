@@ -2,7 +2,7 @@ from flask_frozen import Freezer
 from src import app
 
 app.app.config['FREEZER_BASE_URL'] = 'https://sepi.me'
-app.app.config['FREEZER_RELATIVE_URLS'] = False
+app.app.config['FREEZER_RELATIVE_URLS'] = True
 app.app.config['FREEZER_DESTINATION'] = '../public'
 app.app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
 frozen_app = Freezer(app.app)
@@ -21,4 +21,4 @@ def tag_page():
 
 if __name__ == '__main__':
 	frozen_app.freeze()
-	app.app.run(host='localhost', port=1987, debug=True)
+	# app.app.run(host='localhost', port=1987, debug=True)
