@@ -10,7 +10,7 @@
     {% for post in posts | reverse %}
     <div class="article">
       <span class="date">{{post.meta.date.strftime('%B %-d, %Y')}}</span>
-      <a href="/post-{{post.idx}}.html">{{post.meta.title}}</a>   
+      <a href="/post-{{post.idx}}.html">{{post.meta.title}}</a>
     </div>
     {% endfor %}
   </section>
@@ -22,20 +22,20 @@
       <dt>email</dt>
       <dd><a href="mailto:me@sepi.me">me@sepi.me</a></dd>
       <dt>github</dt>
-      <dd><a href="https://github.com/sepisoad">@github</a></dd>
+      <dd><a href="https://github.com/sepisoad">@sepisoad</a></dd>
       <dt>sourcehut</dt>
-      <dd><a href="https://sr.ht/~sircmpwn">~sepisoad</a></dd>      
+      <dd><a href="https://sr.ht/~sircmpwn">~sepisoad</a></dd>
     </dl>
 
     <small>
       <h3>Hello</h3>
-        <p> My name is Sepehr ﴾سپهر﴿, but I go by "<strong>Sepi</strong>". I'm a full-stack software engineer living
-            in <strong>Copenhagen, Denmark</strong>. I've been programming since I was a teenager, and I started my
-            career professionally in 2010. 
-        </p>
+      <p> My name is Sepehr ﴾سپهر﴿, but I go by "<strong>Sepi</strong>". I'm a full-stack software engineer living
+        in <strong>Copenhagen, Denmark</strong>. I've been programming since I was a teenager, and I started my
+        career professionally in 2010.
+      </p>
     </small>
   </aside>
-  
+
 </main>
 
 {% endblock page %}
