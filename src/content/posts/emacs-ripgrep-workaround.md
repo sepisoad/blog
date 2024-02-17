@@ -1,7 +1,7 @@
 ---
 title: 'My pain points with Emacs code search and how I fixed them'
 date: 2023-10-22
-tags: [emacs, search, programming, ripgrep]
+tags: [emacs, programming]
 ---
 
 I love [Emacs](https://www.gnu.org/software/emacs/), but one of the things I miss from Visual Studio Code is a good code search feature.

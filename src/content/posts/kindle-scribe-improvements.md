@@ -1,7 +1,7 @@
 ---
 title: 'Improvements I would like to see in kindle scribe tablet'
 date: 2023-01-02
-tags: [ebook, e-ink, e-reader, kindle, amazon]
+tags: [gadget, kindle, amazon]
 ---
 
 around a week ago I received my [kindle scribe](https://www.amazon.com/Introducing-Kindle-Scribe-the-first-Kindle-for-reading-and-writing/dp/B09BRZBK15) e-ink tablet and has been using it actively since. I've come to appreciate the simplicity of the device and the way it functions but some things can be improved to make the device a fantastic product. the build quality is also very good and the pen also feels OK and does not need charging, so all is good on the hardware side.

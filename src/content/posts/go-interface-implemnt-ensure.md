@@ -1,7 +1,7 @@
 ---
 title: 'type check go interface implementations on compile time'
 date: 2022-08-02 
-tags: [go, programming, interface]
+tags: [go, programming]
 ---
 
 interfaces in **go** are a bit different from other languages namely **java** and **c#**, in go you do not explicitly define a concrete implementation for an interface, like what you do in say java. in fact interfaces are impelmented implicitly, in other words an struct implments an interface once in contains all the method defined in an interface.

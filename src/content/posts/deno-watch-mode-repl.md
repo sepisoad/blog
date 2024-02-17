@@ -1,7 +1,7 @@
 ---
 title: 'how to run deno in watch mode'
 date: 2022-08-26
-tags: [deno, programming, javascript]
+tags: [deno, programming, js]
 ---
 
 [deno](https://deno.land) is awesome in many ways, you can setup a project that makes use of external libaries in a matter of seconds, you do not need the stupid `package.json` file and also you do not need to install countless libraries just to run a hello world http server.

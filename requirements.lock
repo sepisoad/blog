@@ -9,26 +9,13 @@
 
 -e file:.
 blinker==1.7.0
-    # via flask
 click==8.1.7
-    # via flask
 flask==3.0.2
-    # via app1
-    # via frozen-flask
 frozen-flask==1.0.2
-    # via app1
 itsdangerous==2.1.2
-    # via flask
 jinja2==3.1.3
-    # via flask
 markdown==3.5.2
-    # via app1
 markupsafe==2.1.5
-    # via jinja2
-    # via werkzeug
 python-frontmatter==1.1.0
-    # via app1
 pyyaml==6.0.1
-    # via python-frontmatter
 werkzeug==3.0.1
-    # via flask
