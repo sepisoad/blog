@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block page %}
+
+<h1>
+  {{ meta.title  }}
+  <small>
+    <span class="date">{{ meta.date.strftime('%B %-d, %Y') }}</span>
+    on
+    <span class="site"><a href="/">Sepi's blog</a></span>
+  </small>
+</h1>
+
+<small>
+  {% for tag in meta.tags %}
+  <a class="tag" href="/tag-{{tag}}"> {{tag}} </a> 
+  {% endfor %}
+</small>
+
+<main>
+  <article>
+   {{content | safe}}
+  </article>
+</main>
+
+{% endblock page %}
