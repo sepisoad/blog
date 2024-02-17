@@ -3,7 +3,7 @@ from src import app
 
 app.app.config['FREEZER_BASE_URL'] = 'https://sepi.me'
 app.app.config['FREEZER_RELATIVE_URLS'] = False
-app.app.config['FREEZER_DESTINATION'] = '../BUILD'
+app.app.config['FREEZER_DESTINATION'] = '../public'
 app.app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
 frozen_app = Freezer(app.app)
 
