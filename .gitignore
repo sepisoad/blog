@@ -7,5 +7,6 @@ wheels/
 *.egg-info
 
 # venv
+.DS_Store
 .venv
 public
