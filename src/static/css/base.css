@@ -72,7 +72,7 @@ h1 small {
 article {
   margin: 0 auto;
   max-width: 720px;
-  line-height: 1.3
+  line-height: 1.3;
 }
 
 article img,
@@ -104,13 +104,6 @@ article .comment {
 
 .footnotes {
   font-size: .85rem
-}
-
-footer {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: .8rem;
-  color: #333
 }
 
 .float-img {
@@ -341,12 +334,38 @@ hr {
 }
 
 .tag {
+  text-decoration: none;
   display: inline-block;
-  background-color: rgb(1, 68, 96);
-  color: #dbe8ea;
-  padding-left: 6px;
-  padding-right: 6px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   border-radius: 7px;
+  margin-right: 2px;
+}
+
+.codehilite {
+  padding: 10px;
+  border-radius: 7px;
+  background-color: #f1f3f3;
+  color: #243a3f;
+}
+
+footer {
+  background-color: #eff4f5;
+  color: #425e63;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+}
+
+footer item a {
+  text-decoration: none;
 }

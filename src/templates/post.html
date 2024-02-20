@@ -3,7 +3,7 @@
 {% block page %}
 
 <h1>
-  {{ meta.title  }}
+  {{ meta.title }}
   <small>
     <span class="date">{{ meta.date.strftime('%B %-d, %Y') }}</span>
     on
@@ -13,14 +13,20 @@
 
 <small>
   {% for tag in meta.tags %}
-  <a class="tag" href="/tag-{{tag}}.html"> {{tag}} </a> 
+  <a class="tag" href="/tag-{{tag}}.html"> {{tag}} </a>
   {% endfor %}
 </small>
 
 <main>
   <article>
-   {{content | safe}}
+    {{content | safe}}
   </article>
 </main>
+
+<footer>
+  <item> <a href="/">home</a> </item>
+  <item> © sepehr aryani</item>
+  <item> <a href="mailto:me@sepi.me"> me@sepi.me</a> </item>
+</footer>
 
 {% endblock page %}
