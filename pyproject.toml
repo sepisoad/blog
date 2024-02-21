@@ -10,6 +10,7 @@ dependencies = [
     "Frozen-Flask>=1.0.2",
     "markdown>=3.5.2",
     "python-frontmatter>=1.1.0",
+    "python-lsp-server[all]>=1.10.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -23,7 +24,7 @@ build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 100
-indent-width = 2
+indent-width = 4
 
 [tool.ruff.format]
 quote-style = "single"
