@@ -1,5 +1,5 @@
 ---
-title: 'How my bog works'
+title: 'How my blog works'
 date: 2024-02-17
 tags: [web, python, ssg, flask]
 ---
