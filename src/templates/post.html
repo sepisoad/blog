@@ -20,14 +20,13 @@
 <main>
   <article>
     {{content | safe}}
+  </article>
 
-    <div>
-      <reply>
+        <reply>
 	if you have any comments click on
 	<a href="mailto:me@sepi.me?subject=responding to '{{ meta.title }}'"> this link </a>
 	to send me an email with your comments!
       </reply>
-    </div>
 
     <footer>
       <item> <a href="/">home</a> </item>
@@ -35,7 +34,6 @@
       <item> <a href="mailto:me@sepi.me"> me@sepi.me</a> </item>
     </footer>
 
-  </article>
 </main>
 
 {% endblock page %}
