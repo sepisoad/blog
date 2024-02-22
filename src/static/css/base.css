@@ -84,7 +84,6 @@ article iframe {
 }
 
 @media(max-width:640px) {
-
   article img,
   article video,
   article iframe {
@@ -353,17 +352,33 @@ hr {
   color: #243a3f;
 }
 
+reply {
+    background-color: #E8E6FF;
+  color: #425e63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+reply a {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 footer {
   background-color: #eff4f5;
   color: #425e63;
-  padding: 10px;
-  margin-bottom: 10px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 footer item a {
