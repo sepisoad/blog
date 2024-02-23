@@ -38,6 +38,11 @@ def atom():
     return Response(payload, mimetype='application/atom+xml')
 
 
+@app.get('/email-added.html')
+def email_aded():
+    return render_template('email-added.html')
+
+
 def read_markdown(path):
     with open(path) as file:
         data = frontmatter.loads(file.read())

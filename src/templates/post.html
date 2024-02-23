@@ -22,11 +22,12 @@
     {{content | safe}}
   </article>
 
-        <reply>
-	if you have any comments click on
-	<a href="mailto:me@sepi.me?subject=responding to '{{ meta.title }}'"> this link </a>
-	to send me an email with your comments!
-      </reply>
+  <reply>
+    <form action="https://worker-bold-cake-059e.sepi.workers.dev" method="POST">
+      <input type="email" id="id-email" name="email" placeholder="please enter your email">
+      <input type="submit" value="subscribe">
+    </form>
+  </reply>
 
     <footer>
       <item> <a href="/">home</a> </item>
