@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 from markdown import markdown
 from datetime import datetime
 import xml.etree.ElementTree as ET
@@ -19,10 +19,11 @@ def home_page():
 
 @app.get('/post-<int:id>.html')
 def post_page(id):
+    url = request.url
     posts = get_posts_info('./src/content/posts')
     post = posts[id - 1]
     meta, content = read_markdown(post['file'])
-    return render_template('post.html', meta=meta, content=content)
+    return render_template('post.html', meta=meta, content=content, url=url)
 
 
 @app.get('/tag-<name>.html')
