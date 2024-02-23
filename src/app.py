@@ -39,8 +39,18 @@ def atom():
 
 
 @app.get('/email-added.html')
-def email_aded():
+def email_added():
     return render_template('email-added.html')
+
+
+@app.get('/email-exists.html')
+def email_exists():
+    return render_template('email-exists.html')
+
+
+@app.get('/email-invalid.html')
+def email_invalid():
+    return render_template('email-invalid.html')
 
 
 def read_markdown(path):
