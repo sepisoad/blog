@@ -106,21 +106,26 @@ def generate_atom(path):
 
     feed = ET.Element("feed", {"xmlns": "http://www.w3.org/2005/Atom"})
 
-    link = ET.SubElement(feed, "link", {"rel": "self"})
-    link.set("href", f"{blog_url}feed.atom")
-
     title = ET.SubElement(feed, "title")
     title.text = blog_title
+    
+    link = ET.SubElement(feed, "link")
+    link.set("href", blog_url)
 
-    id = ET.SubElement(feed, "id")
-    id.text = blog_url + "feed.atom"
-
-    updated = ET.SubElement(feed, "updated")
-    updated.text = datetime.utcnow().isoformat() + "Z"
+    link2 = ET.SubElement(feed, "link")
+    link2.set("href", f"{blog_url}feed.atom")
+    link2.set("rel", "self")
+    link2.set("type", "application/atom+xml")
 
     author = ET.SubElement(feed, "author")
     authorname = ET.SubElement(author, "name")
     authorname.text = author_name
+
+    id = ET.SubElement(feed, "id")
+    id.text = blog_url
+
+    updated = ET.SubElement(feed, "updated")
+    updated.text = datetime.utcnow().isoformat() + "Z"
 
     idx = 0
     for post in posts:
@@ -131,11 +136,11 @@ def generate_atom(path):
         title = ET.SubElement(entry, "title")
         title.text = post["meta"]["title"]
 
-        link = ET.SubElement(entry, "link", {"rel": "alternate"})
-        link.set("href", f"{blog_url}post-{idx}")
-
         id = ET.SubElement(entry, "id")
         id.text = f"{blog_url}post-{idx}"
+
+        link = ET.SubElement(entry, "link")
+        link.set("href", f"{blog_url}post-{idx}")
 
         updated_val = datetime.strptime(str(post["meta"]["date"]), "%Y-%m-%d")
         updated = ET.SubElement(entry, "updated")
