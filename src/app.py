@@ -38,6 +38,11 @@ def atom():
     payload = generate_atom('./src/content/posts')
     return Response(payload, mimetype='application/atom+xml')
 
+@app.get('/feed.rss')
+def rss():
+    payload = generate_rss('./src/content/posts')
+    return Response(payload, mimetype='application/rss+xml')
+
 
 @app.get('/email-added.html')
 def email_added():
@@ -147,3 +152,41 @@ def generate_atom(path):
         updated.text = str(updated_val.isoformat() + "Z")
 
     return ET.tostring(feed, encoding="unicode")
+
+
+def generate_rss(path):
+    posts = get_posts_info(path)
+
+    rss = ET.Element("rss", {"version": "2.0"})
+
+    channel = ET.SubElement(rss, "channel")
+
+    title = ET.SubElement(channel, "title")
+    title.text = blog_title
+    
+    link = ET.SubElement(channel, "link")
+    link.text = blog_url
+
+    author = ET.SubElement(channel, "author")
+    author.text = author_name
+    
+    lastBuildDate = ET.SubElement(channel, "lastBuildDate")
+    lastBuildDate.text = datetime.utcnow().isoformat() + "Z"    
+
+    idx = 0
+    for post in posts:
+        idx = idx + 1
+
+        item = ET.SubElement(channel, "item")
+
+        title = ET.SubElement(item, "title")
+        title.text = post["meta"]["title"]
+
+        link = ET.SubElement(item, "link")
+        link.text = f"{blog_url}post-{idx}"
+
+        updated_val = datetime.strptime(str(post["meta"]["date"]), "%Y-%m-%d")
+        pubDate = ET.SubElement(item, "pubDate")
+        pubDate.text = str(updated_val.isoformat() + "Z")
+
+    return ET.tostring(rss, encoding="unicode")
