@@ -1,7 +1,7 @@
 ---
 title: 'Understanding Memory Alignment in Quake 1'
 date: 2024-08-25
-tags: [c, quake, game, quake, performance]
+tags: [c, quake, game, performance]
 ---
 
 As I was diving into the Quake 1 source code, I came across many strange and intriguing pieces of code. It's fascinating to see how the developers squeezed every ounce of performance out of the hardware available at the time. I’ve decided to start a series of blog posts to unpack some of these coding tricks and optimizations. Today, I want to focus on one line that particularly caught my attention:

@@ -1,7 +1,7 @@
 ---
 title: 'One Line, Three Tricks: Unpacking a Quake 1 Gem'
 date: 2025-03-14
-tags: [c, quake, game, quake, performance]
+tags: [c, quake, game, performance]
 ---
 
 While diving into the Quake 1 source code, I stumbled across a clever line in the `GL_MakeAliasModelDisplayLists` function that’s worth unpacking:
